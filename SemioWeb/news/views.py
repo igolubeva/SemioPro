@@ -7,4 +7,3 @@ def index(request):
     context = {'news':news_list}
     return render(request, 'news/base_news.html', context)
 
-# Create your views here.
