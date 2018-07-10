@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Круг древнего знаменного пения</title>{% endblock %}
+
+{% block script %} 
+   
+{% endblock %}
+
+{% block content %} 
+    <div class='page_content'>
+        <div class="db_page krug">
+            <div class="tab_content">
+                {% for znam in krugs_data %}
+                    <div class="znam zoomTarget" data-closeclick="true" data-targetsize="0.2">
+                        <div>
+                            <div class="irm_text" style="font-style:{{ znam.sign.style }}; font-weight:{{ znam.sign.style }};">
+                                <sup class="pometa_style" >{{ znam.pometa }}</sup>{{ znam.sign.letter }} </div>
+                            <div class="slog_font">
+                                {% if znam.slog %}
+                                    {{ znam.slog }}
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:"9" %}<div style="clear: both;"></div>{% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
